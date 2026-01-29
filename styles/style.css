@@ -1,10 +1,6 @@
 body {
   margin: 0;
-  overflow: hidden;
- 
 }
-
-
 
 .button-start{
     display: flex;
@@ -16,43 +12,36 @@ body {
 }
 
 .title{
-  
     color: rgb(32, 16, 173);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bolder;
     font-size: 50px;
-    
     text-align: center;
- 
 }
+
 .button-start button{
     background-color: rgb(255, 255, 255);
-  color: rgb(13, 13, 13);
-  padding: 10px;
-  font-size: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-  width: 400px;
-  border: none;
-  align-items: center;
-  justify-content: center;
-  font-size: bolder;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  
+    color: rgb(13, 13, 13);
+    padding: 10px;
+    font-size: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 400px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    font-size: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
-#start-screen{
-  
-    background-image: url("../images/image-start.png");
-  background-size: contain;      
-  background-position: center; 
-  background-repeat: no-repeat;
-flex-direction: column;
-  
-    background-attachment: fixed;
-    
-  height: 100vh;
 
+#start-screen{
+      background-image: url("../images/image-start.png");
+    background-size: contain;      
+    background-position: center; 
+    background-repeat: no-repeat;
+    flex-direction: column;
+    background-attachment: fixed;
 
 }
 
@@ -65,40 +54,53 @@ flex-direction: column;
 }
 
 #game-box {
+     background-image: url("../images/fond\ musée.png");
+     background-size: cover;    
+     background-position: center; 
+     background-repeat: no-repeat;
+      /* background-attachment: fixed;*/
+  position: relative;
+  width:600px;
+  height:450px;
   
-  width:500px;
-  height:400px
-
-  
-
- 
- 
-
+  /* this is what makes elements visually not seen outside of the box*/
+  overflow: hidden; 
 }
 
 #game-screen{
-   
-     background-image: url("../images/fond\ musée.png");
-       background-size: cover;
-        background-size: contain;      
-  background-position: center; 
-  background-repeat: no-repeat;
-    height: 100vh;
-    display: none;
-    background-attachment: fixed;
 
+    flex-direction: row;
+     display: none;
+    
 }
-
 
 #game-box * {
-  pointer-events: none; /* prevents elements in the game-box to be dragged. This improves the user experience for click events on the game-box  */
+  pointer-events: none; /* prevents elements in the game-box to be dragged */
 }
 
- #game-over-screen {
-  visibility: hidden;
-      display: none;
+#game-over-screen {
+  display: none;
 }
 
-#start-screen {
-   
+
+#score h3{
+  justify-content: flex-start;
+  display: flex;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  color: black;
 }
+
+#score h2{
+   font-size: 16px;
+   font-weight: lighter;
+   color: black
+}
+
+.scoreimage{
+    width: 50px;
+}
+
+

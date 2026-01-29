@@ -4,16 +4,17 @@ class Robber {
     this.node.src = "./images/robber.png";
     gameBoxNode.append(this.node);
 
-    this.x = 1060;
-    this.y = 700;
-    this.width = 160;
-    this.height = 135;
+    this.x = gameBoxNode.offsetWidth - 150;
+    this.y = gameBoxNode.offsetHeight - 150;
+    this.width = 50;
+    this.height = 50;
 
     this.node.style.position = "absolute";
     this.node.style.top = `${this.y}px`;
     this.node.style.left = `${this.x}px`;
     this.node.style.width = `${this.width}px`;
     this.node.style.height = `${this.height}px`;
+    this.node.style.zIndex = 999
    // this.gravitySpeed = 1.8;
    // this.jumpSpeed = 30;
     this.speed = 20;

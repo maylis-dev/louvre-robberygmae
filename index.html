@@ -1,49 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Louvre Robbery</title>
-    
-  <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
+
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
     <!-- START SCREEN -->
     <div id="start-screen" class="container">
-        <div class="title">
+      <div class="title">
         <h1>Robbery game</h1>
-        </div>
-      
+      </div>
+
       <div class="button-start">
-      
-        
         <button id="instruction">Instruction</button>
         <button id="start-btn">Start</button>
         <button id="sound">Sound</button>
-        </div>
+      </div>
     </div>
-    
+
     <!-- GAME SCREEN -->
     <div id="game-screen" class="container">
-        
+      <div id="score">
+        <h2>
+          catch all the
+          <img class="scoreimage" src="images/jewels.jpg" alt="" />
+        </h2>
+        <h3>score : <span id="score-number">0</span> /20</h3>
+      </div>
       <!-- Game elements like score, lifes and other ui elements should be here (inside the game-screen but outside the game-box) -->
 
       <div id="game-box">
         <!-- Game elements will be added here via javascript and DOM manipulation -->
       </div>
-      
     </div>
-    
+
     <!-- GAME OVER SCREEN -->
     <div id="game-over-screen" class="container">
-        <button id ="restart">restart</button>
-      <img src="./images/gameover.png" width="500" alt="logo">
+      <img src="./images/jail.png" alt="">
+      <button id="restart">restart</button>
     </div>
 
-   
-  
-   <script src="./js/main.js"></script>
-   <script src="./js/robber.js"></script>
+    <!-- WIN SCREEN -->
+<div id="win-screen" class="container" style="display:none;">
+  <h1> You Win! </h1>
+  <img src="./images/win.png" alt="">
+  <button id="restart-win-btn">Restart</button>
+</div>
 
-</body>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/robber.js"></script>
+    <script src="./js/obstaclepolice.js"></script>
+    <script src="js/jewels.js"></script>
+  </body>
 </html>
