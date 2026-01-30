@@ -4,7 +4,7 @@ class Jewels {
     this.node = document.createElement("img");
 
     if (type === "jewels"){
-this.node.src = "./images/jewels.jpg";
+this.node.src = "./images/jewels.png";
     }else if(type === "jewels") {
         this.node.src = "./images/jewels.jpg";
     }

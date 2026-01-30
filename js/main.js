@@ -13,6 +13,21 @@ const startBtnNode = document.querySelector("#start-btn");
 
 // game box
 const gameBoxNode = document.querySelector("#game-box");
+// ==========================
+// AUDIO
+// ==========================
+const gameMusic = new Audio(".");
+const winMusic = new Audio("./music/win.mp3");
+const loseMusic = new Audio("./music/gameover.wav");
+const hitSound = new Audio("./music/hit.mp3"); // <-- put your sound file path here
+hitSound.volume = 0.1; 
+
+
+gameMusic.loop = true;
+gameMusic.volume = 0.1;
+winMusic.volume = 0.1;
+loseMusic.volume = 0.1;
+
 
 // global variables
 let gameBoxWidth = gameBoxNode.clientWidth;
@@ -47,6 +62,10 @@ function keepRobberInside() {
 // START GAME
 // ==========================
 function startGame() {
+
+  gameMusic.currentTime = 0;
+gameMusic.play();
+
   startScreenNode.style.display = "none";
   gameScreenNode.style.display = "flex";
 
@@ -68,6 +87,11 @@ function startGame() {
 // GAME LOOP
 // ==========================
 function gameLoop() {
+
+  gameMusic.pause();
+loseMusic.currentTime = 0;
+loseMusic.play();
+
   robberObj.moveDown();
   robberObj.moveUp();
 
@@ -136,10 +160,7 @@ function obstacleDespawnCheck() {
   });
 }
 
-// ==========================
-// COLLISION
-// ==========================
-// ==========================
+
 // COLLISION
 // ==========================
 function collisionObject() {
@@ -171,12 +192,22 @@ function jewelCollision() {
 }
 
 function checkWin() {
-  if (score >= 20) {
+  // reset win music
+
+
+  if (score >= 10) {
     clearInterval(gameIntervalId);
     clearInterval(obstacleIntervalId);
-   
+ 
     gameScreenNode.style.display = "none";
+
+
+
     winScreenNode.style.display = "flex";
+    winMusic.play(); 
+     gameMusic.pause();
+     loseMusic.pause()  // stop the main game music
+winMusic.currentTime = 0;
   }
 }
 
@@ -194,6 +225,9 @@ function checkCollision(obj1, obj2) {
 // GAME OVER
 // ==========================
 function gameOver() {
+  gameMusic.pause();       // stop the main game music
+loseMusic.currentTime = 0;  // reset lose music
+loseMusic.play(); 
   clearInterval(gameIntervalId);
   clearInterval(obstacleIntervalId);
 
@@ -205,6 +239,13 @@ function gameOver() {
 
 
 function resetGame() {
+  gameMusic.pause();
+winMusic.pause();
+loseMusic.pause();
+gameMusic.currentTime = 0;
+winMusic.currentTime = 0;
+loseMusic.currentTime = 0;
+
   
   // stop any running intervals
   clearInterval(gameIntervalId);
@@ -230,12 +271,53 @@ function resetGame() {
 
   // hide screens
   winScreenNode.style.display = "none";
+
   gameOverScreenNode.style.display = "none";
   startScreenNode.style.display = "none";
 
   // show game screen and start a new game
   gameScreenNode.style.display = "flex";  
   startGame(); 
+}
+
+function goToStartScreen() {
+
+  gameMusic.pause();
+winMusic.pause();
+loseMusic.pause();
+gameMusic.currentTime = 0;
+winMusic.currentTime = 0;
+loseMusic.currentTime = 0;
+
+  // stop any running intervals
+  clearInterval(gameIntervalId);
+  clearInterval(obstacleIntervalId);
+
+  // reset score
+  score = 0;
+  scoreNode.innerText = score;
+
+  // remove all obstacles
+  ObstaclepoliceArr.forEach(obj => obj.node.remove());
+  ObstaclepoliceArr = [];
+
+  // remove all jewels
+  jewelsObj.forEach(obj => obj.node.remove());
+  jewelsObj = [];
+
+  // remove robber
+  if (robberObj?.node) {
+    robberObj.node.remove();
+  }
+  robberObj = null;
+
+  // hide game and win/game over screens
+  winScreenNode.style.display = "none";
+  gameOverScreenNode.style.display = "none";
+  gameScreenNode.style.display = "none";
+
+  // show start screen
+  startScreenNode.style.display = "flex";
 }
 
 
@@ -262,4 +344,4 @@ document.addEventListener("keydown", (event) => {
 });
 
 restartBtnNode.addEventListener("click", resetGame);
-restartWinBtnNode.addEventListener("click", resetGame);
+restartWinBtnNode.addEventListener("click", goToStartScreen);

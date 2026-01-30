@@ -11,13 +11,13 @@
     <!-- START SCREEN -->
     <div id="start-screen" class="container">
       <div class="title">
-        <h1>Robbery game</h1>
+        <h1>Louvre Robbery</h1>
       </div>
 
       <div class="button-start">
-        <button id="instruction">Instruction</button>
+       
         <button id="start-btn">Start</button>
-        <button id="sound">Sound</button>
+       
       </div>
     </div>
 
@@ -25,10 +25,10 @@
     <div id="game-screen" class="container">
       <div id="score">
         <h2>
-          catch all the
-          <img class="scoreimage" src="images/jewels.jpg" alt="" />
+          Catch all 
+          <img class="scoreimage" src="images/jewels.png" alt="" />
         </h2>
-        <h3>score : <span id="score-number">0</span> /20</h3>
+        <h3>score : <span id="score-number"> 0</span> /10</h3>
       </div>
       <!-- Game elements like score, lifes and other ui elements should be here (inside the game-screen but outside the game-box) -->
 
@@ -39,15 +39,19 @@
 
     <!-- GAME OVER SCREEN -->
     <div id="game-over-screen" class="container">
-      <img src="./images/jail.png" alt="">
+      <h4 id="game-over-text"> GAME OVER</h4>
+      <img src="./images/jail.png" alt=""  id="jail-image">
       <button id="restart">restart</button>
     </div>
 
     <!-- WIN SCREEN -->
+
 <div id="win-screen" class="container" style="display:none;">
-  <h1> You Win! </h1>
-  <img src="./images/win.png" alt="">
-  <button id="restart-win-btn">Restart</button>
+  <div class="win-wrapper">
+    <h1 id="win-text">You Win!</h1>
+    <img src="./images/win.png" alt="Win Image" id="win-image">
+    <button id="restart-win-btn">Restart</button>
+  </div>
 </div>
 
 

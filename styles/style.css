@@ -1,47 +1,67 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('../font/Blue\ Winter.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
 body {
   margin: 0;
 }
 
-.button-start{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; 
-    color: black;
+.button-start {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: black;
+ width: 200px;
+
+
 }
 
-.title{
-    color: rgb(32, 16, 173);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bolder;
-    font-size: 50px;
-    text-align: center;
+.title {
+  color: rgb(0, 84, 253);
+  font-family: 'MyFont';
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+
 }
 
-.button-start button{
-    background-color: rgb(255, 255, 255);
-    color: rgb(13, 13, 13);
-    padding: 10px;
-    font-size: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    width: 400px;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    font-size: bolder;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+.button-start button {
+  background-color: rgb(255, 255, 255);
+  color: rgb(9, 67, 255);
+  padding: 5%;
+  font-size: 20px;
+  
+  border-radius: 10px;
+  width: 200px;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  font-size: bolder;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+
+  margin-bottom: 25px;
 }
 
-#start-screen{
-      background-image: url("../images/image-start.png");
-    background-size: contain;      
-    background-position: center; 
-    background-repeat: no-repeat;
-    flex-direction: column;
-    background-attachment: fixed;
+#start-screen {
+  background-image: url("../images/louvrestart\ image.jpg");
+   display: flex;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  background-attachment: fixed;
+ 
+  align-items: center;
+    height: calc(100vh - 100px);
 
 }
 
@@ -54,24 +74,22 @@ body {
 }
 
 #game-box {
-     background-image: url("../images/fond\ musée.png");
-     background-size: cover;    
-     background-position: center; 
-     background-repeat: no-repeat;
-      /* background-attachment: fixed;*/
+  background-image: url("../images/fond\ musée.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed;*/
   position: relative;
-  width:600px;
-  height:450px;
-  
+  width: 600px;
+  height: 450px;
+
   /* this is what makes elements visually not seen outside of the box*/
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-#game-screen{
-
-    flex-direction: row;
-     display: none;
-    
+#game-screen {
+  flex-direction: row;
+  display: none;
 }
 
 #game-box * {
@@ -82,25 +100,150 @@ body {
   display: none;
 }
 
-
-#score h3{
+#score h3 {
   justify-content: flex-start;
   display: flex;
   text-align: center;
   font-size: 16px;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: bolder;
   color: black;
+  vertical-align: center;
+  
+}
+#score-number {
+  margin-left: 5px;
 }
 
-#score h2{
-   font-size: 16px;
-   font-weight: lighter;
-   color: black
+#score h2 {
+  font-size: 16px;
+  font-weight: lighter;
+  color: black;
+   display: flex;
+  align-items: center; 
+  gap: 3px; 
+  text-align: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-.scoreimage{
-    width: 50px;
+#score h2 img {
+  width: 50px;            
+  height: auto;
 }
 
+.scoreimage {
+  width: 50px;
+  vertical-align: middle; 
+  
+}
+
+#score{
+
+        
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 0 30px;      
+  gap: 5px;   
+  
+}
+
+#game-over-screen {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.jail-wrapper {
+  position: relative;      
+  display: inline-block;  
+}
+
+.jail-wrapper img {
+  display: block;
+  width: 400px;            
+  height: auto;
+}
+
+#game-over-text {
+  position: absolute;
+  top: 20%;                
+  left: 50%;               
+  transform: translateX(-50%);
+  color: red;              /* standout color */
+  font-size: 46px;
+  font-weight: bold;
+  font-family: 'MyFont';
+  text-shadow: 2px 2px 4px black; /* optional: better readability */
+  text-align: center;
+  z-index: 10;
+}
+
+/* Restart button at the bottom of the image */
+#restart {
+  position: absolute;
+  bottom: 90px;            /* 10px from bottom of image */
+  left: 50%;               /* center horizontally */
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(25, 0, 255);
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Win screen container */
+#win-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* plein écran */
+}
+
+/* Wrapper pour centrer le contenu sur l'image */
+.win-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Texte You Win au-dessus de l'image */
+#win-text {
+  font-family: 'MyFont';
+  font-size: 48px;
+  font-weight: bold;
+  color: gold;
+  text-shadow: 2px 2px 4px black;
+  margin-bottom: 20px; /* espace entre texte et image */
+  text-align: center;
+  z-index: 10;
+}
+
+/* Image de victoire */
+#win-image {
+  width: 400px; /* adapte à la taille souhaitée */
+  height: auto;
+  display: block;
+}
+
+/* Bouton Restart centré sous l'image */
+#restart-win-btn {
+  margin-top: 20px; /* espace entre image et bouton */
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(25, 0, 255);
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
+}
 
