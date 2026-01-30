@@ -15,18 +15,18 @@ const startBtnNode = document.querySelector("#start-btn");
 const gameBoxNode = document.querySelector("#game-box");
 // ==========================
 // AUDIO
-// ==========================
-const gameMusic = new Audio(".");
+
+const gameMusic = new Audio("./music/mainmusic.mp3");
 const winMusic = new Audio("./music/win.mp3");
 const loseMusic = new Audio("./music/gameover.wav");
-const hitSound = new Audio("./music/hit.mp3"); // <-- put your sound file path here
-hitSound.volume = 0.1; 
+const hitSound = new Audio("./music/collision.wav"); 
+hitSound.volume = 0.02; 
 
 
 gameMusic.loop = true;
-gameMusic.volume = 0.1;
-winMusic.volume = 0.1;
-loseMusic.volume = 0.1;
+gameMusic.volume = 0.02;
+winMusic.volume = 0.02;
+loseMusic.volume = 0.02;
 
 
 // global variables
@@ -62,7 +62,8 @@ function keepRobberInside() {
 // START GAME
 // ==========================
 function startGame() {
-
+loseMusic.pause()
+winMusic.pause()
   gameMusic.currentTime = 0;
 gameMusic.play();
 
@@ -88,9 +89,7 @@ gameMusic.play();
 // ==========================
 function gameLoop() {
 
-  gameMusic.pause();
-loseMusic.currentTime = 0;
-loseMusic.play();
+
 
   robberObj.moveDown();
   robberObj.moveUp();
@@ -113,7 +112,7 @@ loseMusic.play();
 // ADD ELEMENTS
 // ==========================
 function addElement() {
-  // calculate dynamic Y positions within gameBox
+  
   const posY1 = gameBoxNode.offsetHeight - 130
   const posY2 = gameBoxNode.offsetHeight - 40
 
@@ -204,9 +203,9 @@ function checkWin() {
 
 
     winScreenNode.style.display = "flex";
-    winMusic.play(); 
+    
      gameMusic.pause();
-     loseMusic.pause()  // stop the main game music
+      winMusic.play(); 
 winMusic.currentTime = 0;
   }
 }
@@ -225,8 +224,8 @@ function checkCollision(obj1, obj2) {
 // GAME OVER
 // ==========================
 function gameOver() {
-  gameMusic.pause();       // stop the main game music
-loseMusic.currentTime = 0;  // reset lose music
+  gameMusic.pause();       
+loseMusic.currentTime = 0; 
 loseMusic.play(); 
   clearInterval(gameIntervalId);
   clearInterval(obstacleIntervalId);

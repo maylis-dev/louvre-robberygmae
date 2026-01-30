@@ -170,20 +170,19 @@ body {
   top: 20%;                
   left: 50%;               
   transform: translateX(-50%);
-  color: red;              /* standout color */
-  font-size: 46px;
+  color: red;             
   font-weight: bold;
   font-family: 'MyFont';
-  text-shadow: 2px 2px 4px black; /* optional: better readability */
+  text-shadow: 2px 2px 4px black; 
   text-align: center;
   z-index: 10;
 }
 
-/* Restart button at the bottom of the image */
+
 #restart {
   position: absolute;
-  bottom: 90px;            /* 10px from bottom of image */
-  left: 50%;               /* center horizontally */
+  bottom: 90px;            
+  left: 50%;               
   transform: translateX(-50%);
   padding: 10px 20px;
   font-size: 18px;
@@ -200,7 +199,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* plein écran */
+  height: 100vh; 
 }
 
 /* Wrapper pour centrer le contenu sur l'image */
@@ -218,21 +217,21 @@ body {
   font-weight: bold;
   color: gold;
   text-shadow: 2px 2px 4px black;
-  margin-bottom: 20px; /* espace entre texte et image */
+  margin-bottom: 20px; 
   text-align: center;
   z-index: 10;
 }
 
 /* Image de victoire */
 #win-image {
-  width: 400px; /* adapte à la taille souhaitée */
+  width: 400px; 
   height: auto;
   display: block;
 }
 
 /* Bouton Restart centré sous l'image */
 #restart-win-btn {
-  margin-top: 20px; /* espace entre image et bouton */
+  margin-top: 20px; 
   padding: 10px 20px;
   font-size: 18px;
   border-radius: 8px;
